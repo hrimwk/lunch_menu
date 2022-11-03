@@ -1,9 +1,10 @@
 import React, { Dispatch, SetStateAction, useState } from "react";
 import Result from "./Result";
+import "../assets/css/home.css";
 
 function Home() {
   const [categoryId, setId] = useState<string | null>(null);
-  const [inputNum, setInput] = useState<string>("");
+  const [inputNum, setInput] = useState<string>("인원을 선택하지 않았습니다.");
   const [peopleNum, setNumber] = useState<string>(inputNum);
   const [menuName, setMenu] = useState<string>("");
   interface Category {
@@ -26,14 +27,24 @@ function Home() {
   const menu: Menu[] = [
     { categoryNum: "1", name: "국밥" },
     { categoryNum: "1", name: "김치찜" },
+    { categoryNum: "1", name: "보쌈" },
+    { categoryNum: "1", name: "족발" },
     { categoryNum: "2", name: "파스타" },
     { categoryNum: "2", name: "스테이크" },
+    { categoryNum: "2", name: "리조또" },
+    { categoryNum: "2", name: "피자" },
     { categoryNum: "3", name: "자장면" },
+    { categoryNum: "3", name: "탕수육" },
     { categoryNum: "3", name: "짬뽕" },
+    { categoryNum: "3", name: "마라탕" },
     { categoryNum: "4", name: "초밥" },
     { categoryNum: "4", name: "라멘" },
+    { categoryNum: "4", name: "돈까스" },
+    { categoryNum: "4", name: "소바" },
     { categoryNum: "5", name: "떡볶이" },
     { categoryNum: "5", name: "순대" },
+    { categoryNum: "5", name: "라볶이" },
+    { categoryNum: "5", name: "김밥" },
   ];
   const changeCategory = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setId(e.target.value);
@@ -49,7 +60,7 @@ function Home() {
 
   return (
     <div className="container">
-      <div className="catecory-area">
+      <section className="catecory-area">
         <label>원하는 카테고리를 선택해주세요.</label>
         <select onChange={changeCategory}>
           {menuCategory.map((data) => {
@@ -60,18 +71,25 @@ function Home() {
             );
           })}
         </select>
-      </div>
-      <div className="people-num-area">
+      </section>
+      <section className="people-num-area">
+        <label>인원수를 적어주세요</label>
         <input
           type="text"
           placeholder="인원수를 적어주세요."
           onChange={changeInput}
         />
-      </div>
-      <div className="button-area">
+      </section>
+      <section className="button-area">
         <button onClick={changeNum}>start</button>
-      </div>
-      <Result peopleNum={peopleNum} setNumber={setNumber} menuName={menuName} />
+      </section>
+      <section className="result-area">
+        <Result
+          peopleNum={peopleNum}
+          setNumber={setNumber}
+          menuName={menuName}
+        />
+      </section>
     </div>
   );
 }

@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  margin: 40px auto;
+  width: 500px;
+}
+.catecory-area {
+  margin-bottom: 20px;
+}
+.catecory-area select {
+  display: block;
+  margin-top: 5px;
+  padding: 5px;
+  width: 200px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+.people-num-area {
+  margin-bottom: 15px;
+}
+.people-num-area input {
+  display: block;
+  margin-top: 5px;
+  padding: 5px;
+  width: 200px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+.button-area button {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 5px;
+}
+.result-area {
+  margin-top: 50px;
+}
