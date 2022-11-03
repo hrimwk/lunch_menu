@@ -1,20 +1,23 @@
 import { Dispatch, SetStateAction } from "react";
+import "../assets/css/result.css";
 
 interface propsType {
   peopleNum: string;
-  setNumber: Dispatch<SetStateAction<string>>;
   menuName: string;
 }
-function Result({ peopleNum, setNumber, menuName }: propsType) {
+
+function Result({ peopleNum, menuName }: propsType) {
   return (
     <div>
-      <h3>
+      <p className="total-num">
         총 {peopleNum}
         {peopleNum.indexOf("인원을 선택하지 않았습니다.") === -1 && (
           <span>명</span>
         )}
-      </h3>
-      <h1>오늘의 추천메뉴는 {menuName}입니다.</h1>
+      </p>
+      <p className="result">
+        오늘의 추천메뉴는 <span>{menuName}</span>입니다.
+      </p>
     </div>
   );
 }
