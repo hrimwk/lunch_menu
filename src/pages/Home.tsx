@@ -1,13 +1,13 @@
-import React, { Dispatch, SetStateAction, useState } from "react";
-import Result from "./Result";
-import "../assets/css/home.css";
-import { menuCategory, menu } from "../assets/utils/food";
+import React, { Dispatch, SetStateAction, useState } from 'react';
+import Result from '../components/Result';
+import '../assets/css/home.css';
+import { menuCategory, menu } from '../assets/utils/food';
 
 function Home() {
   const [categoryId, setId] = useState<string | null>(null);
-  const [inputNum, setInput] = useState<string>("인원을 선택하지 않았습니다.");
+  const [inputNum, setInput] = useState<string>('인원을 선택하지 않았습니다.');
   const [peopleNum, setNumber] = useState<string>(inputNum);
-  const [menuName, setMenu] = useState<string>("");
+  const [menuName, setMenu] = useState<string>('');
   const [disable, setDisabled] = useState<boolean>(true);
 
   const changeCategory = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -40,11 +40,7 @@ function Home() {
       </section>
       <section className="people-num-area">
         <label>인원수를 적어주세요</label>
-        <input
-          type="number"
-          placeholder="인원수를 적어주세요."
-          onChange={changeInput}
-        />
+        <input type="number" min="0" placeholder="인원수를 적어주세요." onChange={changeInput} />
       </section>
       <section className="button-area">
         <button onClick={changeNum} disabled={disable}>
